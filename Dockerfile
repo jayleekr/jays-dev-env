@@ -39,7 +39,10 @@ RUN python3 -m pip install --trusted-host pypi.python.org --trusted-host files.p
 RUN python3 -m pip install \
     lxml jinja2 treelib \
     --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
-RUN python3 -m pip install PrettyTable pyyaml netns scapy paho-mqtt crcmod python-can bitarray crc8 crc16 dnslib aiohttp wrapt multidict yarlpip3 lxml jinja2 treelib setuptools pyinstaller --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
+RUN python3 -m pip install \
+    PrettyTable pyyaml netns scapy paho-mqtt crcmod python-can bitarray crc8 crc16 dnslib aiohttp wrapt multidict yarl \ 
+    lxml jinja2 treelib setuptools \
+    --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
