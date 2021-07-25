@@ -10,7 +10,8 @@ RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install -y \
   less \
   wget \
   cmake \
-  python \
+  python3.8 \
+  python3.8-dev \
   python-lxml \
   python3-pip \
   seccomp \
@@ -32,7 +33,6 @@ RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install -y \
   tftp-hpa  \
   locales \
   ca-certificates \
-  golang \
   tree
 
 RUN python3 -m pip install --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org --upgrade pip
@@ -43,7 +43,8 @@ RUN python3 -m pip install \
     PrettyTable pyyaml netns scapy paho-mqtt crcmod python-can bitarray crc8 crc16 dnslib aiohttp wrapt multidict yarl \ 
     lxml jinja2 treelib setuptools \
     --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org
-
+RUN wget https://golang.org/dl/go1.16.6.linux-amd64.tar.gz && tar -zxvf https://golang.org/dl/go1.16.6.linux-amd64.tar.gz -C /usr/local/
+RUN 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
